@@ -31,3 +31,10 @@ Route::get('login', function () {
 });
 
 Route::post('data', 'App\Http\Controllers\Datasavedcontroller@store');
+
+Route::post('login', 'App\Http\Controllers\Datasavedcontroller@login');
+
+Route::get('table', function () {
+    return view('table');
+});
+

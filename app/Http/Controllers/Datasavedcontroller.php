@@ -57,4 +57,32 @@ else{
 }
 
                 }
+
+public function login(Request $request){
+
+    
+$password = "admin123";
+    if($request->username == 'admin') {
+        if($request->password == $password){
+
+            $users = system::all();
+            return view('table', ['users' => $users]);
+
+
+        }
+        else{
+
+            return view('login',['error' => "Please Enter Valid Credentials"  ]);
+
+        }
+    }
+    else{
+        return view('login',['error' => "Please Enter Valid Credentials"  ]);
+
+    }
+
+
+
+}
+
 }
