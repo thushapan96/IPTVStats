@@ -22,6 +22,8 @@
 </th>
       <th scope="col">Password
 </th>
+<th scope="col">delete
+</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +33,8 @@
       <th scope="row">{{$user->address}}</th>
       <td>{{$user->username}}</td>
       <td>{{$user->password}}</td>
+      <td><a href="/delete/{{$user->id}}" type="button" class="btn btn-danger">Delete</a></td>
+
     </tr>
     @endforeach
 

@@ -85,4 +85,11 @@ $password = "admin123";
 
 }
 
+public function delete($id){
+    $user = system::find($id);
+    $user->delete();
+    $users = system::all();
+            return view('table', ['users' => $users]);
+}
+
 }

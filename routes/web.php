@@ -34,6 +34,9 @@ Route::post('data', 'App\Http\Controllers\Datasavedcontroller@store');
 
 Route::post('login', 'App\Http\Controllers\Datasavedcontroller@login');
 
+Route::get('delete/{id}', 'App\Http\Controllers\Datasavedcontroller@delete');
+
+
 Route::get('table', function () {
     return view('table');
 });
