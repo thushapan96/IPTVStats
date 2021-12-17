@@ -30,7 +30,7 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::post('data', 'App\Http\Controllers\Datasavedcontroller@store');
+Route::post('data', 'App\Http\Controllers\Datasavedcontroller@store')->name('data');
 
 Route::post('login', 'App\Http\Controllers\Datasavedcontroller@login');
 

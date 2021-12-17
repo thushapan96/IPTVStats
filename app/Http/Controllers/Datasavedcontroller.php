@@ -21,7 +21,12 @@ class Datasavedcontroller extends Controller
 
        
     if(!$system){
-        $system = system::create($request->all());
+        $set = 1;
+        $system = new system([
+            'address' => $request->address,
+            'username' => $request->username,
+            'password' => $request->password
+        ]);
                 }
 
         $address = $system->address ;
@@ -30,11 +35,15 @@ class Datasavedcontroller extends Controller
 
     $url =   $address.'/player_api?username='.$username.'&password='.$password ;  
     
-    $response = Http::get($url);
-    
+    $response = Http::timeout(5)->get($url);
+
     $json = $response->json();
 
     if($json){
+    
+    if($set){
+        $system -> save();
+    }
 
     $startdate = $json['user_info']['created_at'] ;
     $startdate = Carbon::createFromTimestamp($startdate)->format('m/d/Y');
