@@ -35,7 +35,7 @@ class Datasavedcontroller extends Controller
 
     $url =   $address.'/player_api?username='.$username.'&password='.$password ;  
     
-    $response = Http::timeout(5)->get($url);
+    $response = Http::timeout(30)->get($url);
 
     $json = $response->json();
 
