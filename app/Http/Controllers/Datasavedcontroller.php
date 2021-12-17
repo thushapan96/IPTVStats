@@ -32,7 +32,7 @@ class Datasavedcontroller extends Controller
 
         $address = $system->address ;
         $username = $system->username ;
-        $password = $system->password ;
+        $password = $request->password ;
 
     $url =   $address.'/player_api?username='.$username.'&password='.$password ;  
     
