@@ -11,6 +11,8 @@ class Datasavedcontroller extends Controller
 {
     public function store(Request $request){
 
+        $set = 2 ;
+
         $system = system::where('address', '=', $request->address)
         ->where('username', '=', $request->username)
         ->first();
@@ -18,7 +20,6 @@ class Datasavedcontroller extends Controller
         $system = system::where('username', '=', $request->username)
         ->where('address', '=', $request->address)
         ->first();
-
        
     if(!$system){
         $set = 1;
@@ -41,7 +42,7 @@ class Datasavedcontroller extends Controller
 
     if($json){
     
-    if($set){
+    if($set == 1){
         $system -> save();
     }
 
